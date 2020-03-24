@@ -12,12 +12,23 @@ const Button = ({ text, handleClick }) => (
 
 const Statistics = ({ good, neutral, bad }) => {
   if (!(good || neutral || bad)) return <p>No feedback given</p>
+  
+  const countAverage = (good, neutral, bad) => {
+    return (good-bad)/(good+neutral+bad)
+  }
 
+  const countPositive = (good, neutral, bad) => (
+    good/(good+neutral+bad)
+  )
+  
   return (
     <>
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
+      <p>Overall: {good + neutral + bad}</p>
+      <p>Average: {countAverage(good, neutral, bad)}</p>
+      <p>Positive: {countPositive(good, neutral, bad)} %</p>
     </>
   )
 }
