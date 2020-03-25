@@ -9,6 +9,11 @@ const Votes = ({ votesArray, selected }) => {
   return <p>{votesArray[selected]} votes</p>
 }
 
+const MostVotes = ({ votesArray, anecdotes }) => {
+  const maxIndex = votesArray.indexOf(Math.max(...votesArray))
+  return <p>{anecdotes[maxIndex]}</p>
+}
+
 const App = (props) => {
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
@@ -24,10 +29,14 @@ const App = (props) => {
   
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p><em>{props.anecdotes[selected]}</em></p>
       <Votes votesArray={votes} selected={selected}/>
       <Button text="Vote" handleClick={addVote} />
       <Button text="Next anecdote" handleClick={nextAnecdote} />
+      
+      <h3>Anecdote with the most votes</h3>
+      <MostVotes votesArray={votes} anecdotes={props.anecdotes} />
     </div>
   )
 }
