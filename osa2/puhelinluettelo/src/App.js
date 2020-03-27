@@ -8,7 +8,7 @@ const Line = (props) => {
 
 const App = () => {
   const [ persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
+    { name: "Arto Hellas" }
   ]) 
   const [ newName, setNewName ] = useState('')
 
@@ -18,11 +18,12 @@ const App = () => {
 
   const addLine = (event) => {
     event.preventDefault()
-    const lineObject = {
-      name: newName
-    }
+    const lineObject = { name: newName }
 
-    setPersons(persons.concat(lineObject))
+    persons.some(person => person.name === lineObject.name) 
+    ? alert(`${newName} is already added to the phonebook`)
+    : setPersons(persons.concat(lineObject))
+    
     setNewName('')
   }
   
