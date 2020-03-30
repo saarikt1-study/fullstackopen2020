@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Note from './components/Note'
 
-const App = (props) => {
+const App = () => {
   const [notes, setNotes] = useState([])
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
@@ -16,7 +16,7 @@ const App = (props) => {
         setNotes(response.data)
       })
   }, [])
-  
+
   console.log('render', notes.length, 'notes')
 
   const addNote = (event) => {
