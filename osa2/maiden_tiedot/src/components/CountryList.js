@@ -1,5 +1,6 @@
 import React from 'react'
 import Country from './Country'
+import CountryDetails from './CountryDetails'
 
 const CountryList = ({ countries, search }) => {
 
@@ -11,8 +12,11 @@ const CountryList = ({ countries, search }) => {
         country.name.toLowerCase()
         .includes(search.toLowerCase()))
 
+  if (filteredList.length === 1) {
+    return <CountryDetails country={filteredList[0]} />
+  }
 
-  if (filteredList.length < 10) {
+  else if (filteredList.length < 10) {
     return (
       <div>
         {filteredList
