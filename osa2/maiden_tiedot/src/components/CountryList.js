@@ -2,7 +2,7 @@ import React from 'react'
 import Country from './Country'
 import CountryDetails from './CountryDetails'
 
-const CountryList = ({ countries, search }) => {
+const CountryList = ({ countries, search, setNewSearch }) => {
 
   if (search.length < 2) return null
 
@@ -24,6 +24,7 @@ const CountryList = ({ countries, search }) => {
             <Country
               key={country.alpha2Code} 
               name={country.name} 
+              setNewSearch={setNewSearch}
             />
         )}
       </div>

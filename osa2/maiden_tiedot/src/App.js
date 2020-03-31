@@ -5,7 +5,7 @@ import Search from './components/Search'
 import CountryList from './components/CountryList'
 
 const App = () => {
-  const [ newSearch, setNewSearch ] = useState('')
+  const [ newSearch, setNewSearch ] = useState('sw')
   const [ countries, setCountries ] = useState([])
 
   useEffect(() => {
@@ -13,7 +13,6 @@ const App = () => {
       .get('https://restcountries.eu/rest/v2/all')
       .then(response => {
         setCountries(response.data)
-        // console.log(response.data)
       })
     
   }, [])
@@ -21,8 +20,7 @@ const App = () => {
   const handleSearchChange = (event) => {
     setNewSearch(event.target.value)
   }
-  
-  
+
   return (
     <div>
       <h1>Country information</h1>
@@ -33,7 +31,7 @@ const App = () => {
       <CountryList 
         countries={countries}
         search={newSearch}
-
+        setNewSearch={setNewSearch}
       />
     </div>
   )
