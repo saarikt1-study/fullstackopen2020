@@ -31,6 +31,15 @@ const App = () => {
     setNewFilter(event.target.value)
   }
 
+  const deleteLine = (id) => {
+    const person = persons.find(p => p.id === id)
+
+    if (window.confirm(`Are you sure you want to delete ${person.name}?`)) {
+      phoneBookService.deletePerson(person.id)
+      setPersons(persons.filter(person => person.id !== id))
+    }
+  }
+
   const addLine = (event) => {
     event.preventDefault()
     const lineObject = { 
@@ -73,6 +82,7 @@ const App = () => {
       <Persons 
         persons={persons}
         filter={newFilter}
+        deleteLine={() => deleteLine}
       />
     </div>
   )
