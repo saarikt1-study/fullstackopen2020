@@ -8,9 +8,24 @@ const Notification = ({ message }) => {
     marginBottom: 20,
     padding: 10
   }
+
+  const errorStyle = {
+    fontSize: 24,
+    color: 'red',
+    border: 'red 2px solid',
+    marginBottom: 20,
+    padding: 10
+  }
   
   if (message === null) {
     return null
+  }
+  else if (message.includes('ERROR')) {
+    return (
+      <div style={errorStyle}>
+        {message}
+      </div>
+    )
   }
 
   return (

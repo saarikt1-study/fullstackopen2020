@@ -95,6 +95,15 @@ const App = () => {
           setNotificationMessage(null)
         }, 2000)
       })
+      .catch(() => {
+        setNotificationMessage(
+          `ERROR: Couldn't find ${newPerson.name} from the server anymore.`
+        )
+        setTimeout(() => {
+          setNotificationMessage(null)
+        }, 5000) 
+        setPersons(persons.filter(p => p.id !== id))
+      })
   }
   
   return (
