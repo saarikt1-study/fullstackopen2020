@@ -10,7 +10,7 @@ const App = () => {
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ newFilter, setNewFilter] = useState('')
-  const [ notificationMessage, setNotificationMessage ] = useState('test')
+  const [ notificationMessage, setNotificationMessage ] = useState(null)
 
   useEffect(() => {
     phoneBookService
