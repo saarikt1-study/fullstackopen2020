@@ -74,10 +74,10 @@ const App = () => {
             setNotificationMessage(null)
           }, 2000)
           setPersons(persons.concat(returnedLine))
-          setNewName('')
-          setNewNumber('')
-      })
-    }
+        })
+      }
+      setNewName('')
+      setNewNumber('')
   }
 
   const changeNumber = (id, newPerson) => {
