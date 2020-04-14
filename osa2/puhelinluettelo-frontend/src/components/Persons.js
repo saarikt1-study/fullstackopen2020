@@ -5,7 +5,7 @@ const Persons = (props) => (
   <div>
     {props.persons.map((person) => 
       <Line 
-        key={person.name} 
+        key={person.id} 
         person={person} 
         filter={props.filter}
         deleteLine={props.deleteLine(person.id)}
