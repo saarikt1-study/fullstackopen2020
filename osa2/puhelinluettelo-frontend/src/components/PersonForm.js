@@ -3,16 +3,16 @@ import React from 'react'
 const PersonForm = (props) => (
   <form onSubmit={props.addLine}>
     <div>
-      name: <input 
-              value={props.name}
-              onChange={props.handleNameChange}
-            />
+      name: <input
+        value={props.name}
+        onChange={props.handleNameChange}
+      />
     </div>
     <div>
       number: <input
-                value={props.number}
-                onChange={props.handleNumberChange}
-              />
+        value={props.number}
+        onChange={props.handleNumberChange}
+      />
     </div>
     <div>
       <button type="submit">add</button>

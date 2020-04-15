@@ -3,10 +3,10 @@ import Line from './Line'
 
 const Persons = (props) => (
   <div>
-    {props.persons.map((person) => 
-      <Line 
-        key={person.id} 
-        person={person} 
+    {props.persons.map((person) =>
+      <Line
+        key={person.id}
+        person={person}
         filter={props.filter}
         deleteLine={props.deleteLine(person.id)}
       />
