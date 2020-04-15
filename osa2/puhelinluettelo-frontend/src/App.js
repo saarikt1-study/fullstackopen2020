@@ -72,10 +72,19 @@ const App = () => {
           )
           setTimeout(() => {
             setNotificationMessage(null)
-          }, 2000)
+          }, 4000)
           setPersons(persons.concat(returnedLine))
         })
+        .catch(error => {
+          setNotificationMessage(
+            `ERROR: ${error.response.data.error}`
+          )
+          setTimeout(() => {
+            setNotificationMessage(null)
+          }, 4000)
+        })
       }
+
       setNewName('')
       setNewNumber('')
   }
