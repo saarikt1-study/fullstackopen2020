@@ -73,6 +73,7 @@ const App = () => {
         username, password,
       })
 
+      noteService.setToken(user.token)
       setUser(user)
       setUsername('')
       setPassword('')
