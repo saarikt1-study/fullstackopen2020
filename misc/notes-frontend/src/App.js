@@ -54,16 +54,16 @@ const App = () => {
       .update(id, changedNote)
       .then(returnedNote => {
         setNotes(notes.map(note => note.id !== id ? note : returnedNote))
-    })
-    .catch(error => {
-      setErrorMessage(
-        `Note '${note.content}' was already removed from the server`
-      )
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 5000)
-      setNotes(notes.filter(n => n.id !== id))
-    })
+      })
+      .catch(() => {
+        setErrorMessage(
+          `Note '${note.content}' was already removed from the server`
+        )
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
+        setNotes(notes.filter(n => n.id !== id))
+      })
   }
 
   const handleLogin = async (event) => {
@@ -72,7 +72,7 @@ const App = () => {
       const user = await loginService.login({
         username, password,
       })
-      
+
       window.localStorage.setItem(
         'loggedNoteappUser', JSON.stringify(user)
       )
@@ -101,13 +101,13 @@ const App = () => {
   )
 
   const noteFormRef = React.createRef()
-  
+
   const noteForm = () => (
     <Togglable buttonLabel="new note" ref={noteFormRef}>
       <NoteForm createNote={addNote} />
     </Togglable>
   )
-  
+
   return (
     <div>
       <h1>Notes</h1>
@@ -127,9 +127,9 @@ const App = () => {
         </button>
       </div>
       <ul>
-        {notesToShow.map((note, i) => 
-          <Note 
-            key={i} 
+        {notesToShow.map((note, i) =>
+          <Note
+            key={i}
             note={note}
             toggleImportance={() => toggleImportanceOf(note.id)} />
         )}
